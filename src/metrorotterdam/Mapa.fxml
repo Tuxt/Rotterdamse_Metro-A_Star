@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="800.0" maxWidth="700.0" minHeight="800.0" minWidth="700.0" prefHeight="800.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="metrorotterdam.MapaController">
+   <children>
+      <BorderPane prefHeight="800.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <Pane prefHeight="36.0" prefWidth="700.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ComboBox fx:id="origen" layoutX="63.0" layoutY="6.0" prefWidth="150.0" />
+                  <ComboBox fx:id="meta" layoutX="289.0" layoutY="6.0" prefWidth="150.0" />
+                  <Label layoutX="14.0" layoutY="10.0" text="Origen:" />
+                  <Label layoutX="236.0" layoutY="10.0" text="Destino:" />
+                  <Button fx:id="buscar" layoutX="528.0" layoutY="6.0" mnemonicParsing="false" onAction="#calcularTrayecto" prefHeight="25.0" prefWidth="164.0" text="Ruta" />
+               </children>
+            </Pane>
+         </top>
+         <center>
+            <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <!-- ARISTAS -->
+                  <!-- LINEA A -->
+                  <Line fx:id="a1" endX="24.0" endY="00.0" fill="#00aa50" layoutX="499.0" layoutY="199.0" stroke="#00aa50" strokeWidth="4.0" />
+                  <Line fx:id="a2" endX="19.0" endY="22.0" fill="#00aa50" layoutX="523.0" layoutY="199.0" stroke="#00aa50" strokeWidth="4.0" />
+                  <Line fx:id="a3" endX="00.0" endY="33.0" fill="#00aa50" layoutX="540.0" layoutY="221.0" stroke="#00aa50" strokeWidth="4.0" />
+                  <Line fx:id="a4" endX="00.0" endY="32.0" fill="#00aa50" layoutX="540.0" layoutY="254.0" stroke="#00aa50" strokeWidth="4.0" />
+                  <Line fx:id="a5" endX="00.0" endY="29.0" fill="#00aa50" layoutX="540.0" layoutY="286.0" stroke="#00aa50" strokeWidth="4.0" />
+                  <Line fx:id="a6" endX="00.0" endY="27.0" fill="#00aa50" layoutX="540.0" layoutY="315.0" stroke="#00aa50" strokeWidth="4.0" />
+                  <Line fx:id="a7" endX="-24.0" endY="33.0" fill="#00aa50" layoutX="540.0" layoutY="342.0" stroke="#00aa50" strokeWidth="4.0" />
+                  <Line fx:id="a8" endX="-26.0" endY="00.0" fill="#00aa50" layoutX="518.0" layoutY="371.0" stroke="#00aa50" strokeWidth="4.0" />
+                  <Line fx:id="a9" endX="-25.0" endY="00.0" fill="#00aa50" layoutX="492.0" layoutY="371.0" stroke="#00aa50" strokeWidth="4.0" />
+                  <Line fx:id="a10" endX="-25.0" endY="00.0" fill="#00aa50" layoutX="467.0" layoutY="371.0" stroke="#00aa50" strokeWidth="4.0" />
+                  <Line fx:id="a11" endX="-25.0" endY="00.0" fill="#00aa50" layoutX="442.0" layoutY="371.0" stroke="#00aa50" strokeWidth="4.0" />
+                  <Line fx:id="a12" endX="-25.0" endY="00.0" fill="#00aa50" layoutX="417.0" layoutY="371.0" stroke="#00aa50" strokeWidth="4.0" />
+                  <Line fx:id="a13" endX="-42.0" endY="00.0" fill="#00aa50" layoutX="392.0" layoutY="371.0" stroke="#00aa50" strokeWidth="4.0" />
+                  <Line fx:id="a14" endX="-39.0" endY="00.0" fill="#00aa50" layoutX="350.0" layoutY="371.0" stroke="#00aa50" strokeWidth="4.0" />
+                  <Line fx:id="a15" endX="-25.0" endY="00.0" fill="#00aa50" layoutX="311.0" layoutY="371.0" stroke="#00aa50" strokeWidth="4.0" />
+                  <Line fx:id="a16" endX="-25.0" endY="00.0" fill="#00aa50" layoutX="286.0" layoutY="371.0" stroke="#00aa50" strokeWidth="4.0" />
+                  <Line fx:id="a17" endX="-25.0" endY="00.0" fill="#00aa50" layoutX="261.0" layoutY="371.0" stroke="#00aa50" strokeWidth="4.0" />
+                  <Line fx:id="a18" endX="-25.0" endY="00.0" fill="#00aa50" layoutX="236.0" layoutY="371.0" stroke="#00aa50" strokeWidth="4.0" />
+                  <Line fx:id="a19" endX="-35.0" endY="00.0" fill="#00aa50" layoutX="211.0" layoutY="371.0" stroke="#00aa50" strokeWidth="4.0" />
+                  
+                  <!-- LINEA B -->
+                  <Line fx:id="a20" endX="-24.0" endY="00.0" fill="#ffd301" layoutX="662.0" layoutY="199.0" stroke="#ffd301" strokeWidth="4.0" />
+                  <Line fx:id="a21" endX="-25.0" endY="00.0" fill="#ffd301" layoutX="638.0" layoutY="199.0" stroke="#ffd301" strokeWidth="4.0" />
+                  <Line fx:id="a22" endX="-25.0" endY="00.0" fill="#ffd301" layoutX="613.0" layoutY="199.0" stroke="#ffd301" strokeWidth="4.0" />
+                  <Line fx:id="a23" endX="-25.0" endY="00.0" fill="#ffd301" layoutX="588.0" layoutY="199.0" stroke="#ffd301" strokeWidth="4.0" />
+                  <Line fx:id="a24" endX="-21.0" endY="22.0" fill="#ffd301" layoutX="563.0" layoutY="199.0" stroke="#ffd301" strokeWidth="4.0" />
+                  <Line fx:id="a25" endX="00.0" endY="33.0" fill="#ffd301" layoutX="544.0" layoutY="221.0" stroke="#ffd301" strokeWidth="4.0" />
+                  <Line fx:id="a26" endX="00.0" endY="32.0" fill="#ffd301" layoutX="544.0" layoutY="254.0" stroke="#ffd301" strokeWidth="4.0" />
+                  <Line fx:id="a27" endX="00.0" endY="29.0" fill="#ffd301" layoutX="544.0" layoutY="286.0" stroke="#ffd301" strokeWidth="4.0" />
+                  <Line fx:id="a28" endX="00.0" endY="27.0" fill="#ffd301" layoutX="544.0" layoutY="315.0" stroke="#ffd301" strokeWidth="4.0" />
+                  <Line fx:id="a29" endX="-24.0" endY="33.0" fill="#ffd301" layoutX="544.0" layoutY="343.0" stroke="#ffd301" strokeWidth="4.0" />
+                  <Line fx:id="a30" endX="-26.0" endY="00.0" fill="#ffd301" layoutX="518.0" layoutY="375.0" stroke="#ffd301" strokeWidth="4.0" />
+                  <Line fx:id="a31" endX="-25.0" endY="00.0" fill="#ffd301" layoutX="492.0" layoutY="375.0" stroke="#ffd301" strokeWidth="4.0" />
+                  <Line fx:id="a32" endX="-25.0" endY="00.0" fill="#ffd301" layoutX="467.0" layoutY="375.0" stroke="#ffd301" strokeWidth="4.0" />
+                  <Line fx:id="a33" endX="-25.0" endY="00.0" fill="#ffd301" layoutX="442.0" layoutY="375.0" stroke="#ffd301" strokeWidth="4.0" />
+                  <Line fx:id="a34" endX="-25.0" endY="00.0" fill="#ffd301" layoutX="417.0" layoutY="375.0" stroke="#ffd301" strokeWidth="4.0" />
+                  <Line fx:id="a35" endX="-42.0" endY="00.0" fill="#ffd301" layoutX="392.0" layoutY="375.0" stroke="#ffd301" strokeWidth="4.0" />
+                  <Line fx:id="a36" endX="-39.0" endY="00.0" fill="#ffd301" layoutX="350.0" layoutY="375.0" stroke="#ffd301" strokeWidth="4.0" />
+                  <Line fx:id="a37" endX="-25.0" endY="00.0" fill="#ffd301" layoutX="311.0" layoutY="375.0" stroke="#ffd301" strokeWidth="4.0" />
+                  <Line fx:id="a38" endX="-25.0" endY="00.0" fill="#ffd301" layoutX="286.0" layoutY="375.0" stroke="#ffd301" strokeWidth="4.0" />
+                  <Line fx:id="a39" endX="-25.0" endY="00.0" fill="#ffd301" layoutX="261.0" layoutY="375.0" stroke="#ffd301" strokeWidth="4.0" />
+                  <Line fx:id="a40" endX="-25.0" endY="00.0" fill="#ffd301" layoutX="236.0" layoutY="375.0" stroke="#ffd301" strokeWidth="4.0" />
+                  <Line fx:id="a41" endX="-35.0" endY="00.0" fill="#ffd301" layoutX="211.0" layoutY="375.0" stroke="#ffd301" strokeWidth="4.0" />
+                  
+                  <!-- LINEA C -->
+                  <Line fx:id="a42" endX="-25.0" endY="00.0" fill="#ef1f1f" layoutX="617.0" layoutY="379.0" stroke="#ef1f1f" strokeWidth="4.0" />
+                  <Line fx:id="a43" endX="-25.0" endY="00.0" fill="#ef1f1f" layoutX="592.0" layoutY="379.0" stroke="#ef1f1f" strokeWidth="4.0" />
+                  <Line fx:id="a44" endX="-49.0" endY="00.0" fill="#ef1f1f" layoutX="567.0" layoutY="379.0" stroke="#ef1f1f" strokeWidth="4.0" />
+                  <Line fx:id="a45" endX="-26.0" endY="00.0" fill="#ef1f1f" layoutX="518.0" layoutY="379.0" stroke="#ef1f1f" strokeWidth="4.0" />
+                  <Line fx:id="a46" endX="-25.0" endY="00.0" fill="#ef1f1f" layoutX="492.0" layoutY="379.0" stroke="#ef1f1f" strokeWidth="4.0" />
+                  <Line fx:id="a47" endX="-25.0" endY="00.0" fill="#ef1f1f" layoutX="467.0" layoutY="379.0" stroke="#ef1f1f" strokeWidth="4.0" />
+                  <Line fx:id="a48" endX="-25.0" endY="00.0" fill="#ef1f1f" layoutX="442.0" layoutY="379.0" stroke="#ef1f1f" strokeWidth="4.0" />
+                  <Line fx:id="a49" endX="-25.0" endY="00.0" fill="#ef1f1f" layoutX="417.0" layoutY="379.0" stroke="#ef1f1f" strokeWidth="4.0" />
+                  <Line fx:id="a50" endX="-42.0" endY="00.0" fill="#ef1f1f" layoutX="392.0" layoutY="379.0" stroke="#ef1f1f" strokeWidth="4.0" />
+                  <Line fx:id="a51" endX="-39.0" endY="00.0" fill="#ef1f1f" layoutX="350.0" layoutY="379.0" stroke="#ef1f1f" strokeWidth="4.0" />
+                  <Line fx:id="a52" endX="-25.0" endY="00.0" fill="#ef1f1f" layoutX="311.0" layoutY="379.0" stroke="#ef1f1f" strokeWidth="4.0" />
+                  <Line fx:id="a53" endX="-25.0" endY="00.0" fill="#ef1f1f" layoutX="286.0" layoutY="379.0" stroke="#ef1f1f" strokeWidth="4.0" />
+                  <Line fx:id="a54" endX="-25.0" endY="00.0" fill="#ef1f1f" layoutX="261.0" layoutY="379.0" stroke="#ef1f1f" strokeWidth="4.0" />
+                  <Line fx:id="a55" endX="-25.0" endY="00.0" fill="#ef1f1f" layoutX="236.0" layoutY="379.0" stroke="#ef1f1f" strokeWidth="4.0" />
+                  <Line fx:id="a56" endX="-35.0" endY="00.0" fill="#ef1f1f" layoutX="211.0" layoutY="379.0" stroke="#ef1f1f" strokeWidth="4.0" />
+                  <Line fx:id="a57" endX="-25.0" endY="44.0" fill="#ef1f1f" layoutX="176.0" layoutY="375.0" stroke="#ef1f1f" strokeWidth="4.0" />
+                  <Line fx:id="a58" endX="00.0" endY="28.0" fill="#ef1f1f" layoutX="151.0" layoutY="419.0" stroke="#ef1f1f" strokeWidth="4.0" />
+                  <Line fx:id="a59" endX="00.0" endY="27.0" fill="#ef1f1f" layoutX="151.0" layoutY="447.0" stroke="#ef1f1f" strokeWidth="4.0" />
+                  <Line fx:id="a60" endX="00.0" endY="50.0" fill="#ef1f1f" layoutX="151.0" layoutY="474.0" stroke="#ef1f1f" strokeWidth="4.0" />
+                  <Line fx:id="a61" endX="-8.0" endY="84.0" fill="#ef1f1f" layoutX="151.0" layoutY="524.0" stroke="#ef1f1f" strokeWidth="4.0" />
+                  <Line fx:id="a62" endX="-19.0" endY="22.0" fill="#ef1f1f" layoutX="142.0" layoutY="607.0" stroke="#ef1f1f" strokeWidth="4.0" />
+                  <Line fx:id="a63" endX="-21.0" endY="23.0" fill="#ef1f1f" layoutX="123.0" layoutY="629.0" stroke="#ef1f1f" strokeWidth="4.0" />
+                  <Line fx:id="a64" endX="-21.0" endY="22.0" fill="#ef1f1f" layoutX="102.0" layoutY="652.0" stroke="#ef1f1f" strokeWidth="4.0" />
+                  <Line fx:id="a65" endX="-20.0" endY="22.0" fill="#ef1f1f" layoutX="81.0" layoutY="674.0" stroke="#ef1f1f" strokeWidth="4.0" />
+                  <Line fx:id="a66" endX="-23.0" endY="25.0" fill="#ef1f1f" layoutX="61.0" layoutY="696.0" stroke="#ef1f1f" strokeWidth="4.0" />
+                  
+                  <!-- LINEA D -->
+                  <Line fx:id="a67" endY="33.0" fill="#1bc5e9" layoutX="348.0" layoutY="298.0" stroke="#1bc5e9" strokeWidth="4.0" />
+                  <Line fx:id="a68" endY="44.0" fill="#1bc5e9" layoutX="348.0" layoutY="331.0" stroke="#1bc5e9" strokeWidth="4.0" />
+                  <Line fx:id="a69" endY="49.0" fill="#1bc5e9" layoutX="348.0" layoutY="375.0" stroke="#1bc5e9" strokeWidth="4.0" />
+                  <Line fx:id="a70" endY="28.0" fill="#1bc5e9" layoutX="348.0" layoutY="424.0" stroke="#1bc5e9" strokeWidth="4.0" />
+                  <Line fx:id="a71" endY="28.0" fill="#1bc5e9" layoutX="348.0" layoutY="452.0" stroke="#1bc5e9" strokeWidth="4.0" />
+                  <Line fx:id="a72" endY="27.0" fill="#1bc5e9" layoutX="348.0" layoutY="480.0" stroke="#1bc5e9" strokeWidth="4.0" />
+                  <Line fx:id="a73" endY="32.0" fill="#1bc5e9" layoutX="348.0" layoutY="507.0" stroke="#1bc5e9" strokeWidth="4.0" />
+                  <Line fx:id="a74" endY="34.0" fill="#1bc5e9" layoutX="348.0" layoutY="539.0" stroke="#1bc5e9" strokeWidth="4.0" />
+                  <Line fx:id="a75" endX="-79.0" endY="17.0" fill="#1bc5e9" layoutX="350.0" layoutY="573.0" stroke="#1bc5e9" strokeWidth="4.0" />
+                  <Line fx:id="a76" endX="-43.0" fill="#1bc5e9" layoutX="271.0" layoutY="590.0" stroke="#1bc5e9" strokeWidth="4.0" />
+                  <Line fx:id="a77" endX="-85.0" endY="18.0" fill="#1bc5e9" layoutX="228.0" layoutY="590.0" stroke="#1bc5e9" strokeWidth="4.0" />
+                  <Line fx:id="a78" endX="-19.0" endY="22.0" fill="#1bc5e9" layoutX="145.0" layoutY="609.0" stroke="#1bc5e9" strokeWidth="4.0" />
+                  <Line fx:id="a79" endX="-21.0" endY="23.0" fill="#1bc5e9" layoutX="126.0" layoutY="631.0" stroke="#1bc5e9" strokeWidth="4.0" />
+                  <Line fx:id="a80" endX="-21.0" endY="22.0" fill="#1bc5e9" layoutX="105.0" layoutY="654.0" stroke="#1bc5e9" strokeWidth="4.0" />
+                  <Line fx:id="a81" endX="-20.0" endY="22.0" fill="#1bc5e9" layoutX="84.0" layoutY="676.0" stroke="#1bc5e9" strokeWidth="4.0" />
+                  <Line fx:id="a82" endX="-23.0" endY="25.0" fill="#1bc5e9" layoutX="64.0" layoutY="698.0" stroke="#1bc5e9" strokeWidth="4.0" />
+                  
+                  <!-- LINEA E -->
+                  <Line fx:id="a83" endX="35.0" fill="#1a389a" layoutX="161.0" layoutY="28.0" stroke="#1a389a" strokeWidth="4.0" />
+                  <Line fx:id="a84" endX="29.0" fill="#1a389a" layoutX="196.0" layoutY="28.0" stroke="#1a389a" strokeWidth="4.0" />
+                  <Line fx:id="a85" endX="24.0" fill="#1a389a" layoutX="225.0" layoutY="28.0" stroke="#1a389a" strokeWidth="4.0" />
+                  <Line fx:id="a86" endX="26.0" fill="#1a389a" layoutX="249.0" layoutY="28.0" stroke="#1a389a" strokeWidth="4.0" />
+                  <Line fx:id="a87" endX="51.0" endY="15.0" fill="#1a389a" layoutX="275.0" layoutY="28.0" stroke="#1a389a" strokeWidth="4.0" />
+                  <Line fx:id="a88" endX="13.0" endY="21.0" fill="#1a389a" layoutX="326.0" layoutY="43.0" stroke="#1a389a" strokeWidth="4.0" />
+                  <Line fx:id="a89" endX="11.0" endY="35.0" fill="#1a389a" layoutX="339.0" layoutY="64.0" stroke="#1a389a" strokeWidth="4.0" />
+                  <Line fx:id="a90" endY="28.0" fill="#1a389a" layoutX="350.0" layoutY="99.0" stroke="#1a389a" strokeWidth="4.0" />
+                  <Line fx:id="a91" endY="28.0" fill="#1a389a" layoutX="350.0" layoutY="127.0" stroke="#1a389a" strokeWidth="4.0" />
+                  <Line fx:id="a92" endY="27.0" fill="#1a389a" layoutX="350.0" layoutY="155.0" stroke="#1a389a" strokeWidth="4.0" />
+                  <Line fx:id="a93" endY="28.0" fill="#1a389a" layoutX="350.0" layoutY="182.0" stroke="#1a389a" strokeWidth="4.0" />
+                  <Line fx:id="a94" endY="27.0" fill="#1a389a" layoutX="350.0" layoutY="210.0" stroke="#1a389a" strokeWidth="4.0" />
+                  <Line fx:id="a95" endY="26.0" fill="#1a389a" layoutX="350.0" layoutY="237.0" stroke="#1a389a" strokeWidth="4.0" />
+                  <Line fx:id="a96" endY="35.0" fill="#1a389a" layoutX="350.0" layoutY="263.0" stroke="#1a389a" strokeWidth="4.0" />
+                  <Line fx:id="a97" endY="33.0" fill="#1a389a" layoutX="352.0" layoutY="298.0" stroke="#1a389a" strokeWidth="4.0" />
+                  <Line fx:id="a98" endY="44.0" fill="#1a389a" layoutX="352.0" layoutY="331.0" stroke="#1a389a" strokeWidth="4.0" />
+                  <Line fx:id="a99" endY="49.0" fill="#1a389a" layoutX="352.0" layoutY="375.0" stroke="#1a389a" strokeWidth="4.0" />
+                  <Line fx:id="a100" endY="28.0" fill="#1a389a" layoutX="352.0" layoutY="424.0" stroke="#1a389a" strokeWidth="4.0" />
+                  <Line fx:id="a101" endY="28.0" fill="#1a389a" layoutX="352.0" layoutY="452.0" stroke="#1a389a" strokeWidth="4.0" />
+                  <Line fx:id="a102" endY="27.0" fill="#1a389a" layoutX="352.0" layoutY="480.0" stroke="#1a389a" strokeWidth="4.0" />
+                  <Line fx:id="a103" endY="32.0" fill="#1a389a" layoutX="352.0" layoutY="507.0" stroke="#1a389a" strokeWidth="4.0" />
+                  <Line fx:id="a104" endY="34.0" fill="#1a389a" layoutX="352.0" layoutY="539.0" stroke="#1a389a" strokeWidth="4.0" />
+                  
+                  <!-- FIN ARISTAS -->
+                  
+                   <!-- LINEA A -->
+                  <Circle fx:id="n1" fill="WHITE" layoutX="499.0" layoutY="199.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="n2" fill="WHITE" layoutX="523.0" layoutY="199.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="n3" fill="WHITE" layoutX="542.0" layoutY="221.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="n4" fill="WHITE" layoutX="542.0" layoutY="254.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="n5" fill="WHITE" layoutX="542.0" layoutY="286.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="n6" fill="WHITE" layoutX="542.0" layoutY="315.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="n7" fill="WHITE" layoutX="542.0" layoutY="342.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="n8" fill="WHITE" layoutX="518.0" layoutY="375.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="n9" fill="WHITE" layoutX="492.0" layoutY="375.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="n10" fill="WHITE" layoutX="467.0" layoutY="375.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="n11" fill="WHITE" layoutX="442.0" layoutY="375.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="n12" fill="WHITE" layoutX="417.0" layoutY="375.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="n13" fill="WHITE" layoutX="392.0" layoutY="375.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="n14" fill="WHITE" layoutX="350.0" layoutY="375.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="n15" fill="WHITE" layoutX="311.0" layoutY="375.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="n16" fill="WHITE" layoutX="286.0" layoutY="375.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="n17" fill="WHITE" layoutX="261.0" layoutY="375.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="n18" fill="WHITE" layoutX="236.0" layoutY="375.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="n19" fill="WHITE" layoutX="211.0" layoutY="375.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="n20" fill="WHITE" layoutX="176.0" layoutY="375.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+                  <!-- LINEA B -->
+                  <Circle fx:id="n21" fill="WHITE" layoutX="662.0" layoutY="199.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="n22" fill="WHITE" layoutX="638.0" layoutY="199.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="n23" fill="WHITE" layoutX="613.0" layoutY="199.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="n24" fill="WHITE" layoutX="588.0" layoutY="199.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="n25" fill="WHITE" layoutX="563.0" layoutY="199.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+                  <!-- LINEA C -->
+                  <Circle fx:id="n26" fill="WHITE" layoutX="617.0" layoutY="379.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="n27" fill="WHITE" layoutX="592.0" layoutY="379.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="n28" fill="WHITE" layoutX="567.0" layoutY="379.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="n29" fill="WHITE" layoutX="151.0" layoutY="419.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="n30" fill="WHITE" layoutX="151.0" layoutY="447.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="n31" fill="WHITE" layoutX="151.0" layoutY="474.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="n32" fill="WHITE" layoutX="151.0" layoutY="524.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="n33" fill="WHITE" layoutX="143.0" layoutY="608.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="n34" fill="WHITE" layoutX="124.0" layoutY="630.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="n35" fill="WHITE" layoutX="103.0" layoutY="653.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="n36" fill="WHITE" layoutX="82.0" layoutY="675.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="n37" fill="WHITE" layoutX="62.0" layoutY="697.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="n38" fill="WHITE" layoutX="39.0" layoutY="722.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+                  <!-- LINEA D -->
+                  <Circle fx:id="n39" fill="WHITE" layoutX="350.0" layoutY="298.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="n40" fill="WHITE" layoutX="350.0" layoutY="331.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="n41" fill="WHITE" layoutX="350.0" layoutY="424.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="n42" fill="WHITE" layoutX="350.0" layoutY="452.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="n43" fill="WHITE" layoutX="350.0" layoutY="480.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="n44" fill="WHITE" layoutX="350.0" layoutY="507.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="n45" fill="WHITE" layoutX="350.0" layoutY="539.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="n46" fill="WHITE" layoutX="350.0" layoutY="573.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="n47" fill="WHITE" layoutX="271.0" layoutY="590.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="n48" fill="WHITE" layoutX="228.0" layoutY="590.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+                  <!-- LINEA E -->
+                  <Circle fx:id="n49" fill="WHITE" layoutX="161.0" layoutY="28.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="n50" fill="WHITE" layoutX="196.0" layoutY="28.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="n51" fill="WHITE" layoutX="225.0" layoutY="28.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="n52" fill="WHITE" layoutX="249.0" layoutY="28.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="n53" fill="WHITE" layoutX="275.0" layoutY="28.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="n54" fill="WHITE" layoutX="326.0" layoutY="43.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="n55" fill="WHITE" layoutX="339.0" layoutY="64.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="n56" fill="WHITE" layoutX="350.0" layoutY="99.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="n57" fill="WHITE" layoutX="350.0" layoutY="127.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="n58" fill="WHITE" layoutX="350.0" layoutY="155.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="n59" fill="WHITE" layoutX="350.0" layoutY="182.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="n60" fill="WHITE" layoutX="350.0" layoutY="210.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="n61" fill="WHITE" layoutX="350.0" layoutY="237.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="n62" fill="WHITE" layoutX="350.0" layoutY="263.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Label layoutX="449.0" layoutY="158.0" rotate="45.0" style="-fx-font-weight: bold;" text="Binnenhof" />
+                  <Label layoutX="467.0" layoutY="155.0" rotate="45.0" text="Romeynshof" />
+                  <Label layoutX="510.0" layoutY="157.0" rotate="45.0" text="Hesseplaats" />
+                  <Label layoutX="526.0" layoutY="152.0" rotate="45.0" text="Nieuw Verlaat" />
+                  <Label layoutX="553.0" layoutY="153.0" rotate="45.0" text="Amlachtsland" />
+                  <Label layoutX="587.0" layoutY="157.0" rotate="45.0" text="De Tochten" />
+                  <Label layoutX="608.0" layoutY="156.0" rotate="45.0" style="-fx-font-weight: bold;" text="Nesselande" />
+                  <Label layoutX="552.0" layoutY="213.0" text="Graskruid" />
+                  <Label layoutX="552.0" layoutY="246.0" text="Alexander" />
+                  <Label layoutX="552.0" layoutY="278.0" text="Oosterflank" />
+                  <Label layoutX="552.0" layoutY="307.0" text="Prinsenlaan" />
+                  <Label layoutX="552.0" layoutY="334.0" text="Schenkel" />
+                  <Label layoutX="560.0" layoutY="398.0" rotate="45.0" text="Slotlaan" />
+                  <Label layoutX="578.0" layoutY="414.0" rotate="45.0" text="Capelle Centrum" />
+                  <Label layoutX="610.0" layoutY="398.0" rotate="45.0" style="-fx-font-weight: bold;" text="De Terp" />
+                  <Label layoutX="509.0" layoutY="404.0" rotate="45.0" text="Capelsebrug" />
+                  <Label layoutX="480.0" layoutY="410.0" rotate="45.0" text="Kralingse Zoom" />
+                  <Label layoutX="456.0" layoutY="411.0" rotate="45.0" text="Voorschoterlaan" />
+                  <Label layoutX="433.0" layoutY="405.0" rotate="45.0" text="Gedersiaweg" />
+                  <Label layoutX="410.0" layoutY="399.0" rotate="45.0" text="Oostplein" />
+                  <Label layoutX="389.0" layoutY="391.0" rotate="45.0" text="Blaak" />
+                  <Label layoutX="355.0" layoutY="351.0" text="Beurs" />
+                  <Label layoutX="243.0" layoutY="325.0" rotate="45.0" text="Endrachtsplein" />
+                  <Label layoutX="251.0" layoutY="338.0" rotate="45.0" text="Dijkzigt" />
+                  <Label layoutX="212.0" layoutY="332.0" rotate="45.0" text="Coolhaven" />
+                  <Label layoutX="185.0" layoutY="332.0" rotate="45.0" text="Delfshaven" />
+                  <Label layoutX="84.0" layoutY="314.0" rotate="45.0" style="-fx-font-weight: bold;" text="Schiedam Centrum" />
+                  <Label layoutX="96.0" layoutY="411.0" text="Parkweg" />
+                  <Label layoutX="73.0" layoutY="439.0" text="Troelstralaan" />
+                  <Label layoutX="88.0" layoutY="466.0" text="Vijfsluizen" />
+                  <Label layoutX="109.0" layoutY="516.0" text="Pernis" />
+                  <Label layoutX="147.0" layoutY="610.0" text="Tussenwater" />
+                  <Label layoutX="128.0" layoutY="632.0" text="Hoogvliet" />
+                  <Label layoutX="107.0" layoutY="655.0" text="Zalmplaat" />
+                  <Label layoutX="86.0" layoutY="677.0" text="Spijkenisse Centrum" />
+                  <Label layoutX="66.0" layoutY="699.0" text="Heemraadlaan" />
+                  <Label layoutX="43.0" layoutY="724.0" style="-fx-font-weight: bold;" text="De Akkers" />
+                  <Label layoutX="219.0" layoutY="614.0" rotate="45.0" text="Poortugaal" />
+                  <Label layoutX="266.0" layoutY="606.0" rotate="45.0" text="Rhoon" />
+                  <Label layoutX="277.0" layoutY="416.0" text="Leuvehaven" />
+                  <Label layoutX="305.0" layoutY="559.0" style="-fx-font-weight: bold;" text="Slinge" />
+                  <Label layoutX="290.0" layoutY="531.0" text="Zuidplein" />
+                  <Label layoutX="280.0" layoutY="499.0" text="Maashaven" />
+                  <Label layoutX="288.0" layoutY="472.0" text="Rijnhaven" />
+                  <Label layoutX="255.0" layoutY="444.0" text="Wilhelminaplein" />
+                  <Label layoutX="360.0" layoutY="323.0" text="Stadhuis" />
+                  <Label layoutX="360.0" layoutY="255.0" text="Blijdorp" />
+                  <Label layoutX="360.0" layoutY="290.0" style="-fx-font-weight: bold;" text="Rotterdam Centraal" />
+                  <Label layoutX="360.0" layoutY="229.0" text="Melachthonweg" />
+                  <Label layoutX="360.0" layoutY="202.0" text="Meijersplein" />
+                  <Label layoutX="360.0" layoutY="174.0" text="Rodenrijs" />
+                  <Label layoutX="360.0" layoutY="147.0" text="Berkel Westpolder" />
+                  <Label layoutX="360.0" layoutY="119.0" text="Pijnacker Zuid" />
+                  <Label layoutX="360.0" layoutY="91.0" text="Pijkacker Centrum" />
+                  <Label layoutX="348.0" layoutY="51.0" text="Nootdorp" />
+                  <Label layoutX="335.0" layoutY="30.0" text="Leidschenveen" />
+                  <Label layoutX="268.0" layoutY="48.0" rotate="45.0" text="Forepark" />
+                  <Label layoutX="231.0" layoutY="74.0" rotate="45.0" text="Leidschendam-Voorburg">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="212.0" layoutY="61.0" rotate="45.0" text="Voorburg 't Loo" />
+                  <Label layoutX="185.0" layoutY="57.0" rotate="45.0" text="Laan van NOI" />
+                  <Label layoutX="145.0" layoutY="69.0" rotate="45.0" style="-fx-font-weight: bold;" text="Den Haag Centraal" />
+                  <Label layoutX="151.0" layoutY="328.0" rotate="45.0" text="Marconiplein" />
+                  
+               </children>
+            </Pane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
